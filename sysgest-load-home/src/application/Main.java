@@ -29,51 +29,6 @@ public class Main extends Application {
         
         primaryStage.setScene(scene);
         primaryStage.show();
-        
-        Stage myDialog = new MyDialog(primaryStage);
-        myDialog.sizeToScene();
-        myDialog.show();
   
-    }
-}
-
-class MyDialog extends Stage {
-
-    public MyDialog(Stage owner) {
-        super();
-        initOwner(owner);
-        setTitle("title");
-        initModality(Modality.APPLICATION_MODAL);
-        Group root = new Group();
-        Scene scene = new Scene(root, 250, 150, Color.WHITE);
-        setScene(scene);
-
-        GridPane gridpane = new GridPane();
-        gridpane.setPadding(new Insets(5));
-        gridpane.setHgap(5);
-        gridpane.setVgap(5);
-
-        Label userNameLbl = new Label("User Name: ");
-        gridpane.add(userNameLbl, 0, 1);
-
-        Label passwordLbl = new Label("Password: ");
-        gridpane.add(passwordLbl, 0, 2);
-        final TextField userNameFld = new TextField("Admin");
-        gridpane.add(userNameFld, 1, 1);
-
-        final PasswordField passwordFld = new PasswordField();
-        passwordFld.setText("password");
-        gridpane.add(passwordFld, 1, 2);
-
-        Button login = new Button("Change");
-        login.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent event) {
-                close();
-            }
-        });
-        gridpane.add(login, 1, 3);
-        GridPane.setHalignment(login, HPos.RIGHT);
-        root.getChildren().add(gridpane);
     }
 }
